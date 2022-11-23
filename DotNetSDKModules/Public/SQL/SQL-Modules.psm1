@@ -20,7 +20,6 @@ Param (
     [Parameter( Mandatory = $True,
     Position = 0,
     ValueFromPipeline = $True,
-    ValueFromPropertyName = $True,
     ValueFromRemainingArguments = $True )]
     [Parameter( Mandatory = $True,
     ParameterSetName = 'Select',
