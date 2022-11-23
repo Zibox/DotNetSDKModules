@@ -77,7 +77,7 @@ End {
 }
 
 
-Function New-SqlConnection {
+Function New-SQLConnection {
     <#
         .SYNOPSIS
         Used to create a System.Data.Common.DbConnection and connect to it, if desired.
@@ -108,9 +108,11 @@ Function New-SqlConnection {
                 $sqlConnection.Open()
             }
             Catch {
-                Write-Error -Message ('Failed to open connection to database -' + $Error[0].ToString()
+                Write-Error -Message ( 'Failed to open connection to database -' + $Error[0].ToString() )
             }
         }
         Return $sqlConnection
     }
 }
+
+Export-ModuleMember -Function @( 'New-SQLCommand' , 'New-SQLConnection' )

@@ -27,7 +27,7 @@ Function New-File {
         [String] $OnCreate,
 
         [Parameter(  Mandatory = $False )]
-        [Switch] $Force,
+        [Switch] $Force
 
     )
     Begin {
@@ -187,3 +187,5 @@ Process {
     }
     }
 }
+
+Export-ModuleMember -Function @( 'Test-FileLock' , 'Compress-String', 'Expand-String', 'New-File' )

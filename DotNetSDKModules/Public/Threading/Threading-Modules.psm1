@@ -44,39 +44,39 @@ Function Invoke-PowerShellObject {
 
 Function New-InitialSessionStateObject {
     <#
-    .SYNOPSIS
-    Used to generate InitialSessionState class objects for runspaces. Need to expand this out
-    but primarily for now I have been binding custom types/calling assemblies/etc via the
-    powershell object scripts on invoke.
-    .PARAMETER ApartmentState
-    Used to define the apartment state of a thread, Enum ApartmentState
-        MTA 	    1 	The Thread will create and enter a multithreaded apartment.
-        STA 	    0 	The Thread will create and enter a single-threaded apartment.
-        Unknown 	2 	The ApartmentState property has not been set.
-    .NET doesn't use these but if you are calling COM classes, they do.
-    https://learn.microsoft.com/en-us/dotnet/api/system.threading.apartmentstate?view=net-7.0
-    .PARAMETER ThreadOptions
-    This property determines whether a new thread is created for each invocation of a command.
-    Enum PSThread Options
-    https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.runspaces.psthreadoptions?view=powershellsdk-7.2.0
-    .PARAMETER Functions
-    Provide a list of functions that you want to import into the runspace from your current session.
-        This is bound to the 'commands' property, can expand this to include alias's, cmdlets, scripts, etc.
-        [System.Management.Automation.Runspaces.SessionStateAliasEntry]
-        [System.Management.Automation.Runspaces.SessionStateApplicationEntry]
-        [System.Management.Automation.Runspaces.SessionStateAssemblyEntry]     
-        [System.Management.Automation.Runspaces.SessionStateCmdletEntry]   
-        [System.Management.Automation.Runspaces.SessionStateCommandEntry]
-        [System.Management.Automation.Runspaces.SessionStateFormatEntry]
-        [System.Management.Automation.Runspaces.SessionStateProviderEntry]
-        [System.Management.Automation.Runspaces.SessionStateScriptEntry]
-        [System.Management.Automation.Runspaces.SessionStateTypeEntry] 
-    .PARAMETER Variables
-    Provide a list of variables to import into the runspace.
-    .OUTPUTS
-    Returns a [System.Management.Automation.Runspaces.InitialSessionState] with specified properties/imports.
-    .NOTES
-    11/22/2022 - Decided to actually put proper documentation on these and clean them up!
+        .SYNOPSIS
+        Used to generate InitialSessionState class objects for runspaces. Need to expand this out
+        but primarily for now I have been binding custom types/calling assemblies/etc via the
+        powershell object scripts on invoke.
+        .PARAMETER ApartmentState
+        Used to define the apartment state of a thread, Enum ApartmentState
+            MTA 	    1 	The Thread will create and enter a multithreaded apartment.
+            STA 	    0 	The Thread will create and enter a single-threaded apartment.
+            Unknown 	2 	The ApartmentState property has not been set.
+        .NET doesn't use these but if you are calling COM classes, they do.
+        https://learn.microsoft.com/en-us/dotnet/api/system.threading.apartmentstate?view=net-7.0
+        .PARAMETER ThreadOptions
+        This property determines whether a new thread is created for each invocation of a command.
+        Enum PSThread Options
+        https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.runspaces.psthreadoptions?view=powershellsdk-7.2.0
+        .PARAMETER Functions
+        Provide a list of functions that you want to import into the runspace from your current session.
+            This is bound to the 'commands' property, can expand this to include alias's, cmdlets, scripts, etc.
+            [System.Management.Automation.Runspaces.SessionStateAliasEntry]
+            [System.Management.Automation.Runspaces.SessionStateApplicationEntry]
+            [System.Management.Automation.Runspaces.SessionStateAssemblyEntry]     
+            [System.Management.Automation.Runspaces.SessionStateCmdletEntry]   
+            [System.Management.Automation.Runspaces.SessionStateCommandEntry]
+            [System.Management.Automation.Runspaces.SessionStateFormatEntry]
+            [System.Management.Automation.Runspaces.SessionStateProviderEntry]
+            [System.Management.Automation.Runspaces.SessionStateScriptEntry]
+            [System.Management.Automation.Runspaces.SessionStateTypeEntry] 
+        .PARAMETER Variables
+        Provide a list of variables to import into the runspace.
+        .OUTPUTS
+        Returns a [System.Management.Automation.Runspaces.InitialSessionState] with specified properties/imports.
+        .NOTES
+        11/22/2022 - Decided to actually put proper documentation on these and clean them up!
     #>
     [CmdletBinding()]
     Param (
@@ -112,13 +112,13 @@ Function New-InitialSessionStateObject {
         }
         If ( $Variables ) {
             $Variables | ForEach-Object {
-                $initSessionState.Variables.Add( ( [System.Management.Automation.Runspaces.SessionStateVariableEntry]::New( $_ ,
-                    (Get-Variable -Name $import).Value , $null) ) )
+                $initialSessionState.Variables.Add( ( [System.Management.Automation.Runspaces.SessionStateVariableEntry]::New( $_ ,
+                    ( Get-Variable -Name $_ ).Value , $null ) ) )
             }
         }
     }
     End {
-        Return $initSessionState
+        Return $initialSessionState
     }
 }
 
@@ -213,7 +213,7 @@ Function New-PowerShellSBObject {
         Position = 2,
         ValueFromPipeline = $True,
         ValueFromRemainingArguments = $True )]
-        [System.Management.Automation.Runspaces.LocalRunspace] $Runspace,
+        [System.Management.Automation.Runspaces.Runspace] $Runspace,
 
         [Parameter(  Mandatory = $True,
         ParameterSetName = 'RunspacePool',
@@ -314,3 +314,4 @@ Function New-RunspacePool {
     }
 }
 
+Export-ModuleMember -Function @( 'New-RunspacePool' , 'New-Runspace', 'New-PowerShellSBObject', 'New-ObjectLock', 'New-InitialSessionStateObject', 'Invoke-PowerShellObject' )
