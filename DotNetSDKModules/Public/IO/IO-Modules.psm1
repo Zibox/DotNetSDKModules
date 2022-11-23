@@ -19,7 +19,6 @@ Function New-File {
         [Parameter(  Mandatory = $True,
         Position = 0,
         ValueFromPipeline = $True,
-        ValueFromPropertyName = $True,
         ValueFromRemainingArguments = $True )]
         [String] $Path,
 

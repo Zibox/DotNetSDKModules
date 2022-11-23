@@ -26,20 +26,17 @@ Param (
     ParameterSetName = 'Select',
     Position = 0,
     ValueFromPipeline = $True,
-    ValueFromPropertyName = $True,
     ValueFromRemainingArguments = $True )]
     [System.Data.Common.DbConnection] $SQLConnection,
 
     [Parameter( Mandatory = $True,
     Position = 1,
     ValueFromPipeline = $True,
-    ValueFromPropertyName = $True,
     ValueFromRemainingArguments = $True )]
     [Parameter( Mandatory = $True,
     ParameterSetName = 'Select',
     Position = 1,
     ValueFromPipeline = $True,
-    ValueFromPropertyName = $True,
     ValueFromRemainingArguments = $True )]
     [String] $Query,
 
@@ -97,7 +94,6 @@ Function New-SqlConnection {
         [Parameter(  Mandatory = $True,
         Position = 0,
         ValueFromPipeline = $True,
-        ValueFromPropertyName = $True,
         ValueFromRemainingArguments = $True )]
         [String] $ConnectionString,
         

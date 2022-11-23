@@ -16,7 +16,6 @@ Function Invoke-PowerShellObject {
         [Parameter(  Mandatory = $True,
         Position = 0,
         ValueFromPipeline = $True,
-        ValueFromPropertyName = $True,
         ValueFromRemainingArguments = $True )]
         [System.Management.Automation.PowerShell] $PowerShellObject,
 
@@ -87,7 +86,9 @@ Function New-InitialSessionStateObject {
         [Parameter( Mandatory = $False )]
         [ValidateSet( 'Default', 'ReuseThread', 'UseCurrentThread', 'UseNewThread' )]
         [String] $ThreadOptions,
+        [Parameter( Mandatory = $False )]
         [Array] $Functions,
+        [Parameter( Mandatory = $False )]
         [Array] $Variables
     )
     Begin {
