@@ -1,0 +1,105 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Code\\pshell\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj": {}
+  },
+  "projects": {
+    "E:\\Code\\pshell\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Code\\pshell\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj",
+        "projectName": "DotNetSDKCSharpModules",
+        "projectPath": "E:\\Code\\pshell\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj",
+        "packagesPath": "C:\\Users\\nurbz\\.nuget\\packages\\",
+        "outputPath": "E:\\Code\\pshell\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "G:\\Visual Studio Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\nurbz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.PowerShell.Native": {
+              "target": "Package",
+              "version": "[7.3.0, )"
+            },
+            "System.Data.Common": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "System.Management.Automation": {
+              "target": "Package",
+              "version": "[7.3.0, )"
+            },
+            "System.Runtime": {
+              "target": "Package",
+              "version": "[4.3.1, )"
+            },
+            "runtime.native.System.Data.SqlClient.sni": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "runtime.win-x64.runtime.native.System.Data.SqlClient.sni": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "runtime.win-x86.runtime.native.System.Data.SqlClient.sni": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

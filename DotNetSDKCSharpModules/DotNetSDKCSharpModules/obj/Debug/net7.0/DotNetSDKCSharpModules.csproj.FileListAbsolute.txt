@@ -1,0 +1,12 @@
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\bin\Debug\net7.0\DotNetSDKCSharpModules.deps.json
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\bin\Debug\net7.0\DotNetSDKCSharpModules.dll
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\bin\Debug\net7.0\DotNetSDKCSharpModules.pdb
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\obj\Debug\net7.0\DotNetSDKCSharpModules.csproj.AssemblyReference.cache
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\obj\Debug\net7.0\DotNetSDKCSharpModules.GeneratedMSBuildEditorConfig.editorconfig
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\obj\Debug\net7.0\DotNetSDKCSharpModules.AssemblyInfoInputs.cache
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\obj\Debug\net7.0\DotNetSDKCSharpModules.AssemblyInfo.cs
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\obj\Debug\net7.0\DotNetSDKCSharpModules.csproj.CoreCompileInputs.cache
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\obj\Debug\net7.0\DotNetSDKCSharpModules.dll
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\obj\Debug\net7.0\refint\DotNetSDKCSharpModules.dll
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\obj\Debug\net7.0\DotNetSDKCSharpModules.pdb
+E:\Code\pshell\DotNetSDKCSharpModules\DotNetSDKCSharpModules\obj\Debug\net7.0\ref\DotNetSDKCSharpModules.dll
