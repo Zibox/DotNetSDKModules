@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Code\\pshell\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj": {}
+    "E:\\Code\\DotNetSDKModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj": {}
   },
   "projects": {
-    "E:\\Code\\pshell\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj": {
+    "E:\\Code\\DotNetSDKModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Code\\pshell\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj",
+        "projectUniqueName": "E:\\Code\\DotNetSDKModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj",
         "projectName": "DotNetSDKCSharpModules",
-        "projectPath": "E:\\Code\\pshell\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj",
+        "projectPath": "E:\\Code\\DotNetSDKModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj",
         "packagesPath": "C:\\Users\\nurbz\\.nuget\\packages\\",
-        "outputPath": "E:\\Code\\pshell\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\obj\\",
+        "outputPath": "E:\\Code\\DotNetSDKModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "G:\\Visual Studio Shared\\NuGetPackages"

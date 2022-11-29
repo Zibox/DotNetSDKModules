@@ -18,6 +18,7 @@ Function New-SQLCommand {
 [CmdletBinding()]
 Param (
     [Parameter( Mandatory = $True,
+    ParameterSetName = 'All',
     Position = 0,
     ValueFromPipeline = $True,
     ValueFromRemainingArguments = $True )]
@@ -29,6 +30,7 @@ Param (
     [System.Data.SqlClient.SqlConnection] $SQLConnection,
 
     [Parameter( Mandatory = $True,
+    ParameterSetName = 'All',
     Position = 1,
     ValueFromPipeline = $True,
     ValueFromRemainingArguments = $True )]
@@ -40,6 +42,7 @@ Param (
     [String] $Query,
 
     [Parameter (Mandatory = $True,
+    Position = 2,
     ParameterSetName = 'Select')]
     [Switch] $SelectQuery,
 
@@ -113,4 +116,5 @@ Function New-SQLConnection {
         Return $sqlConnection
     }
 }
+
 Export-ModuleMember -Function @( 'New-SQLCommand' , 'New-SQLConnection' )

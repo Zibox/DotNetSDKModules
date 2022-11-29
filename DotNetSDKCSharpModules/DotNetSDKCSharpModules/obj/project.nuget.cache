@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lb1DhZejnBnwFOft9Fw+IumCvpqMBLqvsFB2s7yPKQsTgIUI7dyJ3Q6J7RwPr/qibTD1LkEVdMJ/wAID4OYJmw==",
+  "dgSpecHash": "5hF2KeKS8yNYLhgCjLp9TdmwDQ+EvMQCcktQgK+SvnrUuyepKBw+accyYAJRBEOYajjZLDutqKUFDVhwUJtWcg==",
   "success": true,
-  "projectFilePath": "E:\\Code\\pshell\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj",
+  "projectFilePath": "E:\\Code\\DotNetSDKModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules\\DotNetSDKCSharpModules.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nurbz\\.nuget\\packages\\microsoft.applicationinsights\\2.21.0\\microsoft.applicationinsights.2.21.0.nupkg.sha512",
     "C:\\Users\\nurbz\\.nuget\\packages\\microsoft.management.infrastructure\\2.0.0\\microsoft.management.infrastructure.2.0.0.nupkg.sha512",
