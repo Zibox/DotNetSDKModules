@@ -26,7 +26,7 @@ Param (
     Position = 0,
     ValueFromPipeline = $True,
     ValueFromRemainingArguments = $True )]
-    [System.Data.Common.DbConnection] $SQLConnection,
+    [System.Data.SqlClient.SqlConnection] $SQLConnection,
 
     [Parameter( Mandatory = $True,
     Position = 1,
@@ -49,6 +49,7 @@ Param (
     [Array] $Columns
 )
 Begin {
+	
     [System.Data.Common.DbCommand] $sqlCommand = [System.Data.SqlClient.SqlCommand]::New( $Query , $SQLConnection )
 }
 Process {
@@ -64,10 +65,9 @@ End {
         $return = [System.Collections.Generic.List[PSCustomObject]]@()
         While ( $reader.Read() ) {
             $tempObject = [PSCustomObject] @{}
-            $i = 0
+
             ForEach ( $column in $Columns ) {
-                $tempObject | Add-Member -MemberType 'NoteProperty' -Name $column -Value $reader.GetValue( $i )
-                $i ++
+                $tempObject | Add-Member -MemberType 'NoteProperty' -Name $column -Value $reader.GetValue( $reader.GetOrdinal( "$($column)" ) )
             }
             $return.Add( $tempObject ) 
         }
@@ -75,7 +75,6 @@ End {
         }
     }
 }
-
 
 Function New-SQLConnection {
     <#
@@ -88,19 +87,19 @@ Function New-SQLConnection {
         .NOTES
         11/22/2022 - Decided to actually put proper documentation on these and clean them up!
     #>
+	[OutputType('System.Data.SqlClient.SqlConnection')]
     [CmdletBinding()]
     Param (
         [Parameter(  Mandatory = $True,
         Position = 0,
         ValueFromPipeline = $True,
         ValueFromRemainingArguments = $True )]
-        [String] $ConnectionString,
-        
+		[String] $ConnectionString,
         [Parameter( Mandatory = $False )]
         [Switch] $Connect
     )
     Process {
-        [System.Data.Common.DbConnection] $sqlConnection = [System.Data.SqlClient.SqlConnection]::New( $ConnectionString )
+        [System.Data.SqlClient.SqlConnection] $sqlConnection = [System.Data.SqlClient.SqlConnection]::New( $ConnectionString )
     }
     End {
         If ( $Connect ) {
@@ -114,5 +113,4 @@ Function New-SQLConnection {
         Return $sqlConnection
     }
 }
-
 Export-ModuleMember -Function @( 'New-SQLCommand' , 'New-SQLConnection' )
