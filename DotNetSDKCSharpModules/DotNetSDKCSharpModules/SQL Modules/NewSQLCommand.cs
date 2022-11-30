@@ -6,8 +6,8 @@ using System.Collections;
 namespace DotNetSDKCSharpModules
 {
     [Cmdlet(VerbsCommon.New, "SqlCommand")]
-    [OutputType(typeof(List<PSCustomObject>))]
-    public class NewSqlCommand : PSCmdlet
+    [OutputType(typeof(Dictionary<string, object>))]
+    public class NewSqlCommand : Cmdlet
     {
         [Parameter(Mandatory = true, 
             Position = 0, 
@@ -33,7 +33,7 @@ namespace DotNetSDKCSharpModules
             Position = 1,
             HelpMessage = "Used to specify the query. Use ; to merge multiple strings together as 1 query.",
             ParameterSetName = "Select")]
-        public string Query { get; set; }
+        public String Query { get; set; }
 
         [Parameter(Mandatory = false,
             Position = 2,
