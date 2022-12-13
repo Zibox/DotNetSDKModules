@@ -70,7 +70,10 @@ Function Expand-String {
         .OUTPUTS
         Decompressed string.
         .NOTES
+        11/23/2022- Might want to look into Deflate
+        https://learn.microsoft.com/en-us/dotnet/api/system.io.compression.deflatestream?view=net-7.0
         11/22/2022 - Decided to actually put proper documentation on these and clean them up!
+
     #>
     [CmdletBinding()]
     Param(
