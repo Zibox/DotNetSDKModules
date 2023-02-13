@@ -1,3 +1,54 @@
+Function New-FolderStructure {
+    <#
+        .SYNOPSIS
+        Used to step through a path and verify if it exists, and when it doesn't, step through
+        creating folders until the entire structure does exist.
+
+        Outputs bool for success
+        .PARAMETER Path
+        Used to specify the path you want to test and/or create if it doesn't exist.
+        Uses System.IO.Path.GetFullPath() to verify if the path is valid (no illegal chars, etc) - does not make sure
+        path exists!
+        May need to add secondary validation to regex for local disk, not intended for UNC paths.
+        .NOTES
+        2/13/2023 - New module, just used to create folder structures
+    #>
+    [CmdletBinding()]
+    [OutputType([Bool])]
+    Param(
+        [Parameter( Mandatory = $True, Position = 0 )]
+        [ValidateScript( { [System.IO.Path]::GetFullPath( $_ ) } )]
+        [String] $Path
+    )
+    Begin {
+        $pathSplit = $Path -Split '\\'
+        $base = "{0}" -f $pathSplit[ 0 ]
+        $parts = $pathSplit[1..$pathSplit.count]
+    }
+    Process {
+        $success = $True
+        For( $i = 0; $i -le $parts.Count; $i ++ ) {
+            # update base on every iteration of the loop prior to test.
+            $base += "\$($parts[ $i ])"
+            If ( ! ( Test-Path -Path $base ) ) {
+                Try {
+                    # Suppress output via void
+                    [ void ] ( New-Item -ItemType Directory -Path $base -ErrorAction Stop )
+                }
+                Catch {
+                    $errorMessage = "Failed to create folder at path {0} - {1}" -f $base, $error[0]
+                    $error.Clear()
+                    $success = $False
+                    Write-Error -Message $errorMessage
+                }
+                
+            }
+        }
+    }
+    End {
+        return $success
+    }
+}
 Function New-File {
         <#
         .SYNOPSIS
@@ -70,10 +121,7 @@ Function Expand-String {
         .OUTPUTS
         Decompressed string.
         .NOTES
-        11/23/2022- Might want to look into Deflate
-        https://learn.microsoft.com/en-us/dotnet/api/system.io.compression.deflatestream?view=net-7.0
         11/22/2022 - Decided to actually put proper documentation on these and clean them up!
-
     #>
     [CmdletBinding()]
     Param(
@@ -191,4 +239,4 @@ Process {
     }
 }
 
-Export-ModuleMember -Function @( 'Test-FileLock' , 'Compress-String', 'Expand-String', 'New-File' )
+Export-ModuleMember -Function @( 'New-FolderStructure','Test-FileLock' , 'Compress-String', 'Expand-String', 'New-File' )
